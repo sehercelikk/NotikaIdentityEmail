@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    @await Component.InvokeAsync("_HeadUserLayoutComponentPartial")
+</head>
+
+<body>
+    <div class="error-page-area">
+        <div class="error-page-wrap">
+            <i class="notika-icon notika-close"></i>
+            <h2>HATA! <span class="counter">401</span></h2>
+            <p>Bu sayfaya erişim yetkiniz yok. Lütfen Giriş Yapınız.</p>
+            <a href="/Login/UserLogin/" class="btn">Giriş Yap</a>
+            <a href="/Register/CreateUser/" class="btn">Kayıt Ol</a>
+        </div>
+    </div>
+    @await Component.InvokeAsync("_FooterUserLayoutComponentPartial")
+</body>
+
+</html>

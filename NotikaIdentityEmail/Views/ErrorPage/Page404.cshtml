@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    @await Component.InvokeAsync("_HeadUserLayoutComponentPartial")
+</head>
+
+<body>
+    <div class="error-page-area">
+        <div class="error-page-wrap">
+            <i class="notika-icon notika-close"></i>
+            <h2>HATA! <span class="counter">404</span></h2>
+            <p>Aradığınız sayfaya ulaşılmıyor.</p>
+            <a href="/Message/Inbox/" class="btn">Anasayfa</a>
+        </div>
+    </div>
+    @await Component.InvokeAsync("_FooterUserLayoutComponentPartial")
+</body>
+
+</html>

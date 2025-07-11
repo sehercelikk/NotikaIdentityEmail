@@ -1,0 +1,54 @@
+﻿@using NotikaIdentityEmail.Models.IdentityModels
+@model RegesterUserViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Identity Kayıt Formu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/colorlib-regform-35/css/nunito-font.css">
+    <link rel="stylesheet" href="/colorlib-regform-35/css/style.css" />
+</head>
+<body class="form-v9">
+    <div class="page-content">
+        <div class="form-v9-content" style="background-image: url('/colorlib-regform-35/images/form-v9.jpg')">
+            <form class="form-detail" method="post">
+                <h2>Yeni Kullanıcı Kaydı</h2>
+                <div class="form-row-total">
+                    <div class="form-row">
+                        <input type="text" asp-for="Name" class="input-text" placeholder="Adınız">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" asp-for="Surname"  class="input-text" placeholder="Soyadınız">
+                    </div>
+                </div>
+                <div class="form-row-total">
+                    <div class="form-row">
+                        <input type="email" asp-for="Email" class="input-text" placeholder="Email Adresi">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" asp-for="UserName" class="input-text" placeholder="Kullanıcı Adınız">
+                    </div>
+                </div>
+                <div class="form-row-total">
+                    <div class="form-row">
+                        <input type="password" asp-for="Password" class="input-text" placeholder="Şifreniz">
+                    </div>
+                    <div class="form-row">
+                        <input type="password" asp-for="ConfirmPassword" class="input-text" placeholder="Şifre Tekrar">
+                    </div>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="form-row-last">
+                    <input type="submit" class="register" value="Kayıt Ol">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

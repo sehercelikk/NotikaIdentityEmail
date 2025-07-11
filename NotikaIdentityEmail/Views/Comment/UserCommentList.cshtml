@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<Comment>
+@{
+    ViewData["Title"] = "UserCommentList";
+    Layout = "~/Views/UserLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="form-element-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                        <h2>Yorum Listesi</h2>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>#</th>
+                                <th>Kullanıcı</th>
+                                <th>Yorum</th>
+                                <th>Durum</th>
+                                <th>Sil</th>
+                                <th>Toksik Mi?</th>
+                                <th>Pasife Yap</th>
+                                <th>Yorumu Onayla</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.AppUserId @* + @item.AppUser.Surname *@</td>
+                                    <td>@item.Detail</td>
+                                    <td>@item.CommentStatus</td>
+                                    <td><a href="/Comment/DeleteComment/@item.CommentId/" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Comment/CommentStatusChangeToToxic/@item.CommentId/" class="btn btn-info">Toksik</a></td>
+                                    <td><a href="/Comment/CommentStatusChangeToPasif/@item.CommentId/" class="btn btn-warning">Pasif Yap</a></td>
+                                    <td><a href="/Comment/CommentStatusChangeToActive/@item.CommentId/" class="btn btn-primary">Onayla</a></td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
