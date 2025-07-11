@@ -37,7 +37,7 @@ public class RegisterController : Controller
         var result = await _userManager.CreateAsync(appUser, model.Password);
         if (result.Succeeded)
         {
-            // xemw ayuu jvjb sjbb
+           
             MimeMessage mimeMessage = new MimeMessage();
             MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin","yldzzseher6@gmail.com");
 
@@ -52,7 +52,7 @@ public class RegisterController : Controller
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.Connect("smtp.gmail.com", 587, false);
-            smtpClient.Authenticate("yldzzseher6@gmail.com", "xemwayuujvjbsjbb");
+            smtpClient.Authenticate("youreMail@gmail.com", "youre_google_password(key)");
             smtpClient.Send(mimeMessage);
             smtpClient.Disconnect(true);
 
