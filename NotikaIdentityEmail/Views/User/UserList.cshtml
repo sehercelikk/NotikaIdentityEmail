@@ -1,0 +1,54 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/UserLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+<div class="form-element-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                        <h2>Kullanıcı Listesi</h2>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Email</th>
+                                <th>Kullanıcı Durum</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.Name  @item.Surname</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        @if(item.IsActive)
+                                        {
+                                            <a href="/User/DeactiveUserCount/@item.Id" class="btn btn-warning" style="background:green; border:none">Pasif Yap</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/User/ActiveUserCount/@item.Id" class="btn btn-primary" style="background:grey;border:none">Aktif Yap</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

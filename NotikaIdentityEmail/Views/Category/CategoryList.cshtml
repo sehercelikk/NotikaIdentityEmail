@@ -1,0 +1,48 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/UserLayout/Index.cshtml";
+    int count = 0;
+
+}
+
+
+<div class="form-element-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="basic-tb-hd">
+                        <h2>Kategori Listesi</h2>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>#</th>
+                                <th>Kategori Adı</th>
+                                <th>Durum</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.Status</td>
+                                    <td><a href="/Category/Delete/@item.CategoryId/" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Category/Update/@item.CategoryId/" class="btn btn-warning">Güncelle</a></td>
+                                </tr>
+                            }
+                        </table>
+                        <a href="/Category/Create/" class="btn btn-success">Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
